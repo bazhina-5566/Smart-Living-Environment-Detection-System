@@ -216,19 +216,18 @@ git clone https://github.com/bazhina-5566/----------.git
 ```
 智慧生活环境检测系统/
 ├── README.md                    ← 📖 项目说明文档（本文件）
-├── 显示器三个页面触摸功能加图片轮换/
-│   └── 毛晋耀显示器三个页面触摸功能加图片轮换/
-│       ├── Smart_life.uvprojx   ← Keil 工程文件
-│       ├── Smart_life.uvoptx    ← Keil 工程配置
-│       ├── USER/                ← 👤 用户应用代码
-│       │   ├── inc/             ← 头文件 (25 个)
-│       │   ├── src/             ← 源文件 (22 个)
-│       │   ├── new/             ← 项目模块文档
-│       │   ├── *.pptx           ← UI 页面设计稿
-│       │   └── *.jpg            ← 页面截图
-│       ├── HARDWARE/            ← 底层硬件驱动
-│       ├── STM32F4xx_StdPeriph_Driver/ ← 标准外设库
-│       └── CMSIS/               ← ARM Cortex-M4 启动文件
+├── SmartLife/                   ← 📁 项目主代码
+│   ├── Smart_life.uvprojx       ← Keil 工程文件
+│   ├── Smart_life.uvoptx        ← Keil 工程配置
+│   ├── USER/                    ← 👤 用户应用代码
+│   │   ├── inc/                 ← 头文件 (25 个)
+│   │   ├── src/                 ← 源文件 (22 个)
+│   │   ├── new/                 ← 项目模块文档
+│   │   ├── *.pptx               ← UI 页面设计稿
+│   │   └── *.jpg                ← 页面截图
+│   ├── HARDWARE/                ← 底层硬件驱动
+│   ├── STM32F4xx_StdPeriph_Driver/ ← 标准外设库
+│   └── CMSIS/                   ← ARM Cortex-M4 启动文件
 ```
 
 ---
