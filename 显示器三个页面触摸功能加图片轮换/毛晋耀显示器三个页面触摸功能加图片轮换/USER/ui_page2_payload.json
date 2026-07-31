@@ -1,0 +1,14 @@
+{
+  "task_type": "single_page",
+  "mode": "html",
+  "input": [
+    {
+      "type": "text",
+      "content": "请生成一张精心设计的演示文稿幻灯片，展示STM32F405环境检测项目的第二界面（外设控制页）。具体内容如下：\n\n标题：界面二：外设控制页（Page_One）— 触摸按钮\n\n页面功能描述：\n- 这是LCD触摸屏的四页面UI系统的第二个页面（current_page=1）\n- 纯白色背景（240×320像素）\n- 上半部分居中显示两个并排的方形按钮（80×80像素）：\n  * 左侧：蓝色矩形按钮（坐标10-110, 40-120），白色加粗文字\"LED OFF\"\n  * 右侧：黄色矩形按钮（坐标130-230, 40-120），黑色加粗文字\"FAN ON\"\n- 按钮采用扁平化设计，圆角\n- 触摸LED按钮切换LED状态（蓝色=OFF/红色=ON）\n- 触摸FAN按钮切换风扇状态（绿色=OFF/黄色=ON）\n- 下方留白\n- 通过GetTouchArea()函数检测触摸区域（200ms防抖）\n\nUI代码参考：\n```c\nvoid Page_One(void) {\n    if(ui_flag == 0) {\n        ui_flag = 1;\n        Lcd_Clear(0, 0, 240, 320, WHITE);\n        Lcd_Clear(10, 40, 110, 120, led_status ? RED : BLUE);\n        Lcd_ZikuStr(20, 70, WHITE, led_status ? RED : BLUE, 16, \n                    led_status ? \"LED ON \" : \"LED OFF\");\n        Lcd_Clear(130, 40, 230, 120, fan_status ? YELLOW : GREEN);\n        Lcd_ZikuStr(140, 70, BLACK, fan_status ? YELLOW : GREEN, 16, \n                    fan_status ? \"FAN ON \" : \"FAN OFF\");\n    }\n    // 触摸检测(200ms防抖)...\n}\n```"
+    }
+  ],
+  "options": {
+    "width": 1280,
+    "height": 720
+  }
+}

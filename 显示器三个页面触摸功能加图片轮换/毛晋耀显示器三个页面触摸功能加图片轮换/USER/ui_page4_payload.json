@@ -1,0 +1,14 @@
+{
+  "task_type": "single_page",
+  "mode": "html",
+  "input": [
+    {
+      "type": "text",
+      "content": "请生成一张精心设计的演示文稿幻灯片，展示STM32F405环境检测项目的第四界面（传感器数据页）。具体内容如下：\n\n标题：界面四：传感器数据页（Page_Sensor）— 实时数据\n\n页面功能描述：\n- 这是LCD触摸屏的四页面UI系统的第四个页面（current_page=3）\n- 纯白色背景（240×320像素）\n- 顶部居中显示红色文字\"Sensor_data\"（y=10）\n- 中部显示两个传感器数据（用红色字体）：\n  * 标签\"火焰传感器:\"，y=65\n  * 数值\"0.2%\"（百分比），y=85\n  * 标签\"光敏电阻:\"，y=115\n  * 数值\"30.2%\"（百分比），y=135\n- 数值由ADC采集的原始数据转换：flame_value = 100 - (raw*100/4096)\n- 数值实时刷新（每秒一次，由sht30_flag控制）\n- 通过Sensor_Display_All()函数统一管理LCD显示和串口打印\n\nUI代码参考：\n```c\nvoid Page_Sensor(void) {\n    Lcd_Clear(0,0,240,320,WHITE);\n    Sensor_Display_All();  // 火焰+光敏传感器统一显示\n}\n\nvoid Sensor_Display_All(void) {\n    Lcd_Clear(10, 65, 230, 150, WHITE);\n    Flame_GetValue();    // PC1 = ADC1_IN11\n    ADC1_GetValue();     // PC0 = ADC1_IN10\n    Lcd_ZikuStr(10, 65, RED, WHITE, 16, \"火焰传感器:\");\n    sprintf(disp_buff, \"%.1f%%\", flame_value);\n    Lcd_ZikuStr(10, 85, RED, WHITE, 16, disp_buff);\n    Lcd_ZikuStr(10, 115, RED, WHITE, 16, \"光敏电阻:\");\n    sprintf(disp_buff, \"%.1f%%\", light_value);\n    Lcd_ZikuStr(10, 135, RED, WHITE, 16, disp_buff);\n}\n```"
+    }
+  ],
+  "options": {
+    "width": 1280,
+    "height": 720
+  }
+}

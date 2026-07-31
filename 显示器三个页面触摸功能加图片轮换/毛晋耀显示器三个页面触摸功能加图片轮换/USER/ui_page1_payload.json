@@ -1,0 +1,14 @@
+{
+  "task_type": "single_page",
+  "mode": "html",
+  "input": [
+    {
+      "type": "text",
+      "content": "请生成一张精心设计的演示文稿幻灯片，展示STM32F405环境检测项目的第一界面（首页）。具体内容如下：\n\n标题：界面一：首页（Page_Home）— 个人主页\n\n页面功能描述：\n- 这是LCD触摸屏的四页面UI系统的第一个页面（current_page=0）\n- 使用Lcd_DisplayPic()函数全屏240×320像素显示一张RGB565格式的人物照片\n- 照片内容是一位穿深色Polo衫、卷发、面向左下方的年轻男士在教室里低头看东西的场景\n- 照片右下角用红色字体显示\"宾哥真帅\"中文签名（通过Lcd_ZikuStr()函数读取W25Q64字库）\n- 背景为浅灰色，整体UI简洁美观\n\n请用逼真的视觉设计呈现这个界面效果。布局建议：\n- 顶部留白\n- 中央显示人像照片\n- 底部居中显示\"宾哥真帅\"红色艺术字体\n\nUI代码参考：\n```c\nvoid Page_Home(void) {\n    if(ui_flag == 0) {\n        ui_flag = 1;\n        Lcd_DisplayPic(0, 0, (u8 *)gImage_11);\n        Lcd_ZikuStr(80, 280, RED, WHITE, 16, (u8 *)\"宾哥真帅\");\n    }\n}\n```"
+    }
+  ],
+  "options": {
+    "width": 1280,
+    "height": 720
+  }
+}

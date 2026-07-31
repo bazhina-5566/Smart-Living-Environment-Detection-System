@@ -1,0 +1,14 @@
+{
+  "task_type": "single_page",
+  "mode": "html",
+  "input": [
+    {
+      "type": "text",
+      "content": "请生成一张精心设计的演示文稿幻灯片，展示STM32F405环境检测项目的第三界面（系统状态页）。具体内容如下：\n\n标题：界面三：系统状态页（Page_Two）— 风扇进度条\n\n页面功能描述：\n- 这是LCD触摸屏的四页面UI系统的第三个页面（current_page=2）\n- 纯黑色背景（240×320像素）\n- 顶部居中显示白色文字\"System Status\"（y=30）\n- 第二行：白色\"LED:\" + 状态文字（OFF=红色/ON=绿色），y=60\n- 第三行：白色\"Fan:\" + 状态文字（OFF=红色/ON=绿色），y=100\n- 下半部分嵌套一个白色框（y=178-248），框内显示：\n  * 第一行：黑色\"风扇转速:\" + 红色\"40%\"，y=180\n  * 第二行：水平进度条（200×18px, 边框黑色，填充绿色40%宽），y=203\n  * 第三行：黑色\"RGB:\" + 绿色\"绿灯\"，y=228\n- 进度条填充颜色根据档位联动（灭→灰/低档→绿/中档→蓝/高档→红）\n\nUI代码参考：\n```c\nvoid Page_Two(void) {\n    if(ui_flag == 0) {\n        ui_flag = 1;\n        Lcd_Clear(0, 0, 240, 320, BLACK);\n        Lcd_ZikuStr(50, 30, WHITE, BLACK, 16, \"System Status\");\n        Lcd_ZikuStr(10, 60,  WHITE, BLACK, 16, \"LED:\");\n        Lcd_ZikuStr(10, 100, WHITE, BLACK, 16, \"Fan:\");\n    }\n    // 动态刷新状态... 调用Fan_DisplayStatus()绘制进度条\n}\n```"
+    }
+  ],
+  "options": {
+    "width": 1280,
+    "height": 720
+  }
+}
